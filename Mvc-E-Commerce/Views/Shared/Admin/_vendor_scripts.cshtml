@@ -1,0 +1,120 @@
+﻿<script>
+    (function () {
+        const savedTheme = localStorage.getItem('data-bs-theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        }
+    })();
+
+    window.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('.light-dark-mode').addEventListener('click', function () {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+                localStorage.setItem('data-bs-theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('data-bs-theme', 'dark');
+            }
+        });
+
+        document.querySelector('[data-toggle="fullscreen"]').addEventListener('click', function () {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+    const hamburgerBtn = document.getElementById('topnav-hamburger-icon');
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function () {
+            if (document.documentElement.clientWidth > 767) {
+                document.querySelector(".hamburger-icon").classList.toggle("open");
+            }
+
+            const layout = document.documentElement.getAttribute("data-layout");
+            const windowSize = document.documentElement.clientWidth;
+
+            if (layout === "horizontal") {
+                document.body.classList.toggle("menu");
+            }
+            else if (layout === "vertical") {
+                if (windowSize <= 1025 && windowSize > 767) {
+                    document.body.classList.remove("vertical-sidebar-enable");
+                    if (document.documentElement.getAttribute("data-sidebar-size") === "sm") {
+                        document.documentElement.setAttribute("data-sidebar-size", "");
+                    } else {
+                        document.documentElement.setAttribute("data-sidebar-size", "sm");
+                    }
+                } else if (windowSize > 1025) {
+                    document.body.classList.remove("vertical-sidebar-enable");
+                    if (document.documentElement.getAttribute("data-sidebar-size") === "lg") {
+                        document.documentElement.setAttribute("data-sidebar-size", "sm");
+                    } else {
+                        document.documentElement.setAttribute("data-sidebar-size", "lg");
+                    }
+                } else if (windowSize <= 767) {
+                    document.body.classList.add("vertical-sidebar-enable");
+                    document.documentElement.setAttribute("data-sidebar-size", "lg");
+                }
+            }
+            else if (layout === "semibox") {
+                if (windowSize > 767) {
+                    if (document.documentElement.getAttribute('data-sidebar-visibility') === "show") {
+                        if (document.documentElement.getAttribute("data-sidebar-size") === "lg") {
+                            document.documentElement.setAttribute("data-sidebar-size", "sm");
+                        } else {
+                            document.documentElement.setAttribute("data-sidebar-size", "lg");
+                        }
+                    } else {
+                        document.getElementById("sidebar-visibility-show").click();
+                        document.documentElement.setAttribute("data-sidebar-size", document.documentElement.getAttribute("data-sidebar-size"));
+                    }
+                } else if (windowSize <= 767) {
+                    document.body.classList.add("vertical-sidebar-enable");
+                    document.documentElement.setAttribute("data-sidebar-size", "lg");
+                }
+            }
+            else if (layout === "twocolumn") {
+                document.body.classList.toggle("twocolumn-panel");
+            }
+        });
+      }
+    });
+</script>
+
+<link href="~/admin-assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<link href="~/admin-assets/libs/datatables/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+<link href="~/admin-assets/libs/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="~/admin-assets/libs/datatables/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Temel Kütüphaneler -->
+<script src="~/admin-assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/admin-assets/js/jquery-ui.min.js"></script>
+<script src="~/admin-assets/libs/feather-icons/feather.min.js"></script>
+
+<!-- UI Bileşenleri -->
+<script src="~/admin-assets/libs/simplebar/simplebar.min.js"></script>
+<script src="~/admin-assets/libs/node-waves/waves.min.js"></script>
+
+<!-- Eklentiler -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="~/admin-assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+<!-- DataTables Kütüphaneleri -->
+<script src="~/admin-assets/libs/datatables/jquery.dataTables.min.js"></script>
+<script src="~/admin-assets/libs/datatables/dataTables.bootstrap5.min.js"></script>
+<script src="~/admin-assets/libs/datatables/dataTables.responsive.min.js"></script>
+<script src="~/admin-assets/libs/datatables/dataTables.buttons.min.js"></script>
+<script src="~/admin-assets/libs/datatables/buttons.print.min.js"></script>
+<script src="~/admin-assets/libs/datatables/buttons.html5.min.js"></script>
+<script src="~/admin-assets/libs/datatables/pdfmake.min.js"></script>
+<script src="~/admin-assets/libs/datatables/jszip.min.js"></script>
+<script src="~/admin-assets/libs/datatables/vfs_fonts.js"></script>
+
+<!-- Proje Özel JS Dosyaları -->
+<script src="~/admin-assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+<script src="~/admin-assets/js/plugins.js"></script>

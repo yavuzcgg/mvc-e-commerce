@@ -1,0 +1,72 @@
+﻿<div class="app-menu navbar-menu">
+    <div class="container-fluid">
+        <div id="two-column-menu"></div>
+        <ul class="navbar-nav" id="navbar-nav">
+            <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+
+            <!-- Ayarlar -->
+            <li class="nav-item" style="margin-right: 20px;">
+                <a class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-controls="sidebarDashboards">
+                    <i class="ri-settings-2-line"></i> <span data-key="t-dashboards">Ayarlar</span>
+                </a>
+                <div class="collapse menu-dropdown show" id="sidebarDashboards">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Settings", "Admin")" class="nav-link" data-key="t-ayarlar">Genel Ayarlar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("BannerManagement", "Admin", new { type = 1 })" class="nav-link">Giriş Sayfası Banner Yönetimi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("BannerManagement", "Admin", new { type = 2 })" class="nav-link">Anasayfa Banner Yönetimi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("BannerManagement", "Admin", new { type = 3 })" class="nav-link">Anasayfa Küçük Banner Yönetimi</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Kullanıcı Yönetimi -->
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("UserList", "Admin")">
+                    <i class="ri-user-3-line"></i> <span data-key="t-users">Kullanıcılar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("UserApplications", "Admin")">
+                    <i class="ri-briefcase-4-line"></i> <span data-key="t-widgets">Üyelik Başvuruları</span>
+                </a>
+            </li>
+
+            <!-- Ürün Yönetimi -->
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("Categories", "Admin", new { parentId = 0 })">
+                    <i class="ri-folder-2-line"></i> <span data-key="t-widgets">Kategoriler</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("Products", "Admin")">
+                    <i class="ri-shopping-bag-line"></i> <span data-key="t-widgets">Ürünler</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("Sablons", "Admin")">
+                    <i class="ri-file-copy-line"></i> <span data-key="t-widgets">Ürün Şablonları</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("SablonFiltrs", "Admin")">
+                    <i class="ri-filter-3-line"></i> <span data-key="t-widgets">Şablon Filtreler</span>
+                </a>
+            </li>
+
+            <!-- İçerik Yönetimi -->
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="@Url.Action("StaticPagesEditor", "Admin")">
+                    <i class="ri-edit-2-line"></i> <span data-key="t-widgets">Editör</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

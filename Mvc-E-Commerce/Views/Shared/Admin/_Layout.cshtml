@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="tr" data-layout="horizontal" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    @Html.Partial("~/Views/Shared/Admin/_title_meta.cshtml")
+    @RenderSection("styles", required: false)
+    @Html.Partial("~/Views/Shared/Admin/_head_css.cshtml")
+</head>
+<body>
+    <div id="layout-wrapper">
+        @Html.Partial("~/Views/Shared/Admin/_menu.cshtml")
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+            @Html.Partial("~/Views/Shared/Admin/_footer.cshtml")
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/Admin/_customizer.cshtml")
+    @Html.Partial("~/Views/Shared/Admin/_vendor_scripts.cshtml")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
